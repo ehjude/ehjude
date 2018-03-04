@@ -115,6 +115,10 @@ a {
 	display: inline-block; 
 }
 
+.action-box-resume {
+	display: block;
+}
+
 #cover-letter {
 	margin-right: 20px;
 }
@@ -640,7 +644,7 @@ TESTIMONIAL BOX w/float
 
 .footer p {
 	width: 443px;
-	margin: 30px auto 20px auto;
+	margin: 30px auto 0 auto;
 	color: white;
 	font: 18px/21px Hero;
 	text-align: center;
@@ -911,6 +915,10 @@ TESTIMONIAL BOX w/float
 	.white-bg p {
 		font: 20px/34px "Noteworthy-Light", Helvetica, Arial, sans-serif;
 		margin-top: 10px;
+	}
+
+	.sortable a img {
+		width: 100px;
 	}
 }
 
