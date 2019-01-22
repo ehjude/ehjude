@@ -681,6 +681,7 @@ TESTIMONIAL BOX w/float
 
 	.modal-header img {
 		margin-bottom: 10px;
+		border-radius: 3px;
 	}
 
 	.modal-header img:hover {
