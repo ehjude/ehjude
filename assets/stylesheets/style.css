@@ -70,14 +70,53 @@ table {
 */
 
 @font-face {
- font-family: 'Hero';
-  src: url(/assets/fonts/Hero.otf);
+ font-family: 'Legalitere';
+  src: url(/assets/fonts/Legalitere.otf);
 }
 
 @font-face {
- font-family: 'Noteworthy-Light';
-  src: url(/assets/fonts/Noteworthy-Light.ttf);
+ font-family: 'Charlevoix Pro';
+  src: url(/assets/fonts/CharlevoixPro-Black.otf);
 }
+
+@font-face {
+ font-family: 'Gotham';
+  src: url(/assets/fonts/GothamBook.ttf);
+}
+
+/*@font-face {
+ font-family: 'Gotham Bold';
+  src: url(/assets/fonts/GothamBold.ttf);
+}*/
+
+@font-face {
+   font-family: 'Gotham Bold';
+      src: url(/assets/fonts/GothamBold.ttf);
+   font-weight: normal;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'Gotham Medium';
+      src: url(/assets/fonts/GothamMedium.ttf);
+   font-weight: normal;
+   font-style: normal;
+}
+
+
+@font-face {
+   font-family: 'Noteworthy';
+      src: url(/assets/fonts/Noteworthy.ttf);
+   font-weight: 300;
+   font-style: normal;
+}
+
+
+
+
+
+
+
 
 *,
 *:before,
@@ -88,11 +127,12 @@ table {
 }
 
 html {
-	background: #2f3339;
+	background: #fff;
 }
 
 body {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-family: "Gotham";
+	color: #fff;
 }
 
 a {
@@ -100,61 +140,19 @@ a {
 	color: white;
 }
 
-.action-box {
-	background: #24cdeb;
-	color: #fff;
-	font-weight: 600;
-	text-transform: uppercase;
-	width: 300px;
-	height: 50px;
-	border-radius: 5px;
-	text-align: center;
-	line-height: 50px;
-	vertical-align: middle;
-	margin: 20px 0 0 auto; 
-	display: inline-block; 
-}
 
-.action-box-resume {
-	display: block;
-}
+/* 
+  ==================
+  COLOURS
+  ==================
 
-#cover-letter {
-	margin-right: 20px;
-}
+CHARCOAL: #181819 
+BLUE: #0065a3
+DARK GRAY: #484951
+LIGHT GRAY: #ccd0d2
+GRAY FOR LINES: #54545c
 
-.cover-letter-box {
-	background: #5f8f43;
-}
-
-
-.dark-bg .action-box {
-	margin: 20px auto 50px auto;
-}
-
-.action-box:hover {
-	background: #12c350;
-}
-
-.arrow {
-	width: 0; 
-	height: 0; 
-	border-left: 30px solid transparent;
-	border-right: 30px solid transparent;	
-	margin: 0 auto;
-}
-
-.arrow-white {
-	border-top: 30px solid #fff;
-}
-
-.arrow-gray {
-	border-top: 30px solid #f5f5f5;
-}
-
-.arrow-dark {
-	border-top: 30px solid #2f3339;
-}
+*/
 
 
 /* 
@@ -162,296 +160,432 @@ a {
   HEADER
   ==================
 */
-.splash {
-	height: 500px;
-	width: 100%;
-	background: url("../images/waterloo_skyline.jpg") no-repeat;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	background-size: cover;
-	background-position: top center;
+
+header {
+	height: 760px;
+	background-color: #181819;
+	position: relative;
 }
 
-.splash-info {
-	float: right;
-	display: inline-block;
+#header-style-box {
+	/*background-color: #2a649f;*/
+	background-color: #0065a3;
+	width: 700px;
+	height: 600px;
+	position: absolute;
+	top: 0;
+	right: 180px;
+}
+
+#header-jude-photo {
+	position: absolute;
+	top: 180px;
+	right: 450px;
+	width: 520px;
+}
+
+#header-information {
+	position: absolute;
+	top: 180px;
+	left: 200px;
+	width: 500px;
+}
+
+#header-intro {
+	font-family: "Legalitere";
+	font-size: 36px;
+	color: #b7bdcf;
+	padding-left: 50px;
+}
+
+#header-jude {
+	font-family: "Charlevoix Pro";
+	font-weight: 600;
+	font-size: 115px;
 	color: #fff;
-	font-weight: 600; 
-	font-size: 18px;
-	padding-right: 50px;
-	padding-top: 50px;
 	text-transform: uppercase;
 }
 
-.splash-info h1 {
-	font-size: 70px;
+#header-fiorillo {
+	font-family: "Charlevoix Pro";
+	font-weight: 600;
+	font-size: 90px;
+	color: #fff;
+	text-transform: uppercase;
 }
 
-.splash-info h2 {
-	font-size: 31px;
-	color: #24cdeb;
-	text-align: right;
+/* #header-title {
+	font-family: "Gotham";
+	font-weight: 600;
+	font-size: 30px;
+	color: #b9bfd2;
+	margin-top: 35px;
+} */
+
+#header-title {
+	font-family: "Gotham";
+	font-weight: 600;
+	text-transform: uppercase;
+	font-size: 24px;
+	color: #b9bfd2;
+	margin-top: 25px;
 }
 
-.splash-info h3 {
-	font-size: 21px;
-	color: #24cdeb;
-	text-align: right;
+#header-description {
+	font-family: "Gotham";
+	font-weight: 300;
+	/* font-size: 18px;
+	line-height: 27px; */
+	font-size: 24px;
+	line-height: 1.2;
+	color: #b9bfd2;
+	/* margin-top: 5px; */
+	margin-top: 25px;
+	margin-bottom: 20px;
+	max-width: 450px;
 }
 
-
-.splash-image {
-		padding-right: 50px;
-		padding-top: 50px;
-		float: right;
+.blue-button,
+.gray-button {
+	background-color: #0065a3;
+	color: #fff;
+	text-transform: uppercase;
+	padding: 10px 40px 12px;
+	border-radius: 3px;
+	border: 1px solid #0065a3;
+	font-size: 15px;
+	font-family: "Charlevoix Pro";
+	font-weight: 600;
 }
 
-.splash-image img {
-		border-radius: 50%;
+.gray-button {
+	background-color: #484951;
+	margin-left: 10px;
+	border: 1px solid #484951;
+
 }
 
+.blue-button:hover,
+.gray-button:hover {
+	background-color: #181819;
+	cursor: pointer;
+	border: 1px solid #fff;
+}
+
+.blue-project-button {
+	padding: 10px 20px 12px;
+}
+
+/* 
+  ==================
+  NAV BAR
+  ==================
+*/
 nav {
-	min-height: 50px;
+	/*height: 50px;*/
+	height: 60px;
 	width: 100%;
-	background: #338fba;
+	background-color: #0065a3;
+	/* background-color: #181819; */
 	text-align: center;
-	font-weight: 600; 
+	/*font-weight: 600; */
 	font-size: 18px;
+	font-family: "Gotham";
+	/* border-top: 1px solid #fff; */
 }
 
 nav .selected {
-	color: black;
+	border-bottom: 2px solid #fff;
+	padding-bottom: -5px;
+	background: red;
 }
 
-nav ul {
-	min-height: 50px;
-	line-height: 50px;
-	margin: 0 20px;
+nav li:hover {
+	/*color: #000;*/
+}
+
+nav a {
+	margin-left: 18px;
+	margin-right: 18px
 }
 
 nav li {
 	display: inline-block;
 	color: #fff;
 	text-transform: uppercase;
-	margin-left: 35px;
-	vertical-align: baseline;
+	height: 60px;
+	line-height: 68px;
+	vertical-align: middle;
 }
 
 nav li:first-child {
 	margin-left: 0;
 }
 
-nav li a:hover {
-	color: #82c2e0;
+a.underline-hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.underline-hover {
+  display: inline-block;
+  padding-bottom: 0px; /* defines the space between text and underline */
+  position: relative;
+}
+
+.underline-hover::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #fff;
+  transition: width 0.25s ease-out;
+}
+.underline-hover:hover::before {
+  width: 100%;
 }
 
 /* 
   ==================
-  My Story
+  MY STORY
   ==================
 */
 
-body {
-	width: 100%;
-}
-
-.white-bg {
-	background: #fff;
-	padding-bottom: 40px;
-	width: 100%;
-}
-
-.white-bg p {
-	font: 24px/50px "Noteworthy-Light", Helvetica, Arial, sans-serif;
-	margin-bottom: 18px;
-}
-
-.white-bg .container {
-	margin-top: 0;
-}
-
-.social {
-	text-align: center;
-	display: inline-block; /* remove when you remove cover letter box */
-	margin-left: 15px; /* remove when you remove cover letter box */
-}
-
-#contact-header {
-	/*text-align: center;*/
-}
-
-.social img {
-	height: 40px;
-	width: 40px;
-	margin-left: 5px;
-	position: relative; /* remove when you remove cover letter box */
-	top: 25px; /* remove when you remove cover letter box */
-}
-
-
-/* 
-  ==================
-  Experience,
-  Education,
-  Press
-  ==================
-*/
-section {
-	width: 100%;
-}
-
-section h1 {
-	text-align: center;
+#my-story {
 	color: #000;
-	font-weight: 600; 
+	padding: 80px 0;
+}
+
+#my-story-container {
+	max-width: 940px;
+	margin: 0 auto;
+}
+
+#my-story h2 {
+	font-family: "Charlevoix Pro";
+	font-weight: 600;
+	font-size: 60px;
+	text-transform: uppercase;
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+#my-story p {
+	font-family: "Noteworthy";
 	font-size: 30px;
-	padding-top: 65px;
-	text-transform: uppercase;
-}
-
-section h3 {
-	text-align: center;
-	font-size: 16px;
-	margin-top: 10px;
-	text-transform: uppercase;
-}
-
-.section-header h1 {
-	color: #fff;
-}
-
-#press h3 {
-	color: #fff;
-}
-
-.container {
-	margin: 25px auto 0 auto;
-	max-width: 1024px;
-}
-
-.tile-container {
-	text-align: center;
-}
-
-.tile {
-	display: inline-block;
-	margin: 0 14px 30px;
-	vertical-align: top;
-}
-
-.tile-top {
-	width: 310px;
-	height: 180px;
-	background: #fff;
-	line-height: 180px;
-	border-radius: 5px 5px 0 0;
-	text-align: center;
-	position: relative;
-}
-
-.tile-top:hover img {
-	opacity: 0.5;
-}
-
-.tile-top img {
-	vertical-align: middle;
-}
-
-.tile-bottom {
-	width: 310px;
-	height: 65px;
-	text-align: center;
-	color: #fff;
-	border-radius: 0 0 5px 5px;
-	padding-top: 22px;
-	font-family: Hero, "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-weight: 400; 
-	font-size: 15px;
-	margin-top: 0; 
-}
-
-#experience .tile-bottom {
-	background: #338fba;	
-	padding-top: 22px;
-	margin-top: 0; 
-}
-
-.dark-bg .tile-bottom {
-	background: #b82e1b;	
-	padding-top: 12px;
-	line-height: 21px;
-	margin-top: 0;
-	margin-bottom: 0;
-}
-
-.date {
-	height: 50px;
-	position: absolute;
-	top: -70px;
-	right: 14px;
-	color: #aea8a8;
-	font-family: Hero, "Helvetica Neue", Helvetica, Arial, sans-serif;
-	text-transform: uppercase;
-}
-
-.press {
-	margin-left: 10px;
-	margin-bottom: 10px;
-	display: inline-block;
-}
-
-.press img {
-	width: 240px;
-	height: 157px;
-	border-radius: 5px;
-}
-
-.press:hover {
-	opacity: 0.8;
-}
-
-.empty-press {
-	display: inline-block;
-	visibility: hidden;
-}
-
-.press-section {
-	margin-bottom: 40px;
-}
-
-
-/* 
-  ==================
-  PROJECTS
-  ==================
-*/
-
-#projects h1 {
+	line-height: 45px;
+	font-weight: 300;
 	margin-bottom: 20px;
 }
 
-.camera_caption {
-	font-family: Hero;
-	font-size: 19px;
+#my-story-button {
+	margin-top: 35px;
 }
 
-.camera_caption a {
-	color: #12c350;
-}
-
-.camera_caption img {
+#linkedin-icon {
+	height: 35px;
 	position: relative;
-	top: 10px;
-	border-radius: 3px;
+    top: 11px;
+    margin-left: 25px;
 }
 
-.camera_caption img:hover {
-	opacity: 0.9;
+#linkedin-icon:hover {
+	opacity: 0.7;
 }
 
-.camera_caption a img {
-	margin-left: 8px;
+/* 
+  ==================
+  EXPERIENCE
+  ==================
+*/
+
+#experience {
+	color: #000;
+	padding: 80px 0 50px;
 }
+
+#experience-container {
+	position: relative;
+}
+
+.job-target-outer-container {
+	max-width: 1050px;
+	margin: 0 auto;
+}
+
+#experience h2,
+#skills h2 {
+	font-family: "Charlevoix Pro";
+	font-weight: 600;
+	font-size: 60px;
+	text-transform: uppercase;
+	text-align: center;
+	margin-bottom: 115px;
+}
+
+.job-outer-container {
+	padding: 0 25px;
+	color: #181819;
+	text-transform: uppercase;
+	position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	min-height: 100px;
+	border-radius: 5px;
+}
+
+.job-outer-container:hover {
+	cursor: pointer;
+}
+
+.job-top-inner-container {
+	border-top: 1px solid #ccd0d2;
+}
+
+.job-inner-container {
+	display: inline-block;
+	border-top: 1px solid #ccd0d2;
+	margin-left: 30px;
+	padding: 20px 0;
+	width: 899px;
+	/* border-radius: 5px; */
+}
+
+.last-row {
+	border-bottom: 1px solid #ccd0d2;
+}
+
+.job-icon-container {
+	display: inline-block;
+	min-width: 66px;
+	height: 66px;
+	line-height: 66px;
+	vertical-align: middle;
+	text-align: center;
+	background: #fff;
+	position: relative;
+	top: -20px;
+}
+
+.job-icon {
+	display: inline-block;
+	position: relative;
+	max-height: 45px;
+	max-width: 60px;
+	/* max-width: 180px; */
+	/* top: -10px; */
+	margin-top: 10px;
+}
+
+.job-title-company {
+	display: inline-block;
+	font-family: "Charlevoix Pro";
+	width: 100%;
+	position: relative;
+}
+
+.job-title {
+	font-size: 26px;
+	font-weight: 400;
+}
+
+.job-company {
+	font-size: 20px;
+	font-weight: 500;
+	color: #0065a3;
+	margin-top: 10px;
+}
+
+.job-date-arrow {
+	position: absolute;
+	right: 40px;
+    top: 16px;
+	width: 212px;
+	font-family: "Charlevoix Pro";
+	font-size: 18px;
+	font-weight: 600;
+    text-align: right;
+}
+
+.experience-arrow {
+	height: 20px;
+	position: relative;
+	top: 2px;
+	margin-left: 25px;
+}
+
+.job-details-container {
+	display: none;
+	background-color: #181819;
+	padding: 75px 50px;
+	position: relative;
+	min-height: 725px;
+	top: -54px;
+}
+
+.job-description {
+	display: inline-block;
+	font-family: "Gotham";
+	font-size: 22px;
+	font-weight: 300;
+	color: #fff;
+	width: 580px;
+	line-height: 30px;
+	margin-left: 120px;
+	margin-top: 20px;
+}
+
+.job-description p {
+	margin-bottom: 20px;
+}
+
+.job-image {
+	display: inline-block;
+	/* width: 830px; */
+	width: 900px;
+	position: absolute;
+	right: 0;
+}
+
+.job-image img {
+	width: 100%;
+}
+
+.job-more-details {
+	width: 200px;
+	padding: 15px 0;
+	text-align: center;
+	background-color: #0065a3;
+	border: 1px solid #0065a3;
+	text-transform: uppercase;
+	color: #fff;
+	font-size: 15px;
+	font-family: "Charlevoix Pro";
+	font-weight: 600;
+	margin-bottom: 40px;
+}
+
+.job-more-details:hover {
+	background-color: #181819;
+}
+
+/* .job-more-details {
+	position: absolute;
+	bottom: 8px;
+	right: 0;
+	padding: 10px 40px 12px;
+	background-color: #0065a3;
+	text-transform: uppercase;
+	color: #fff;
+	font-size: 15px;
+	font-family: "Charlevoix Pro";
+	font-weight: 600;
+} */
+
 
 /* 
   ==================
@@ -459,106 +593,69 @@ section h3 {
   ==================
 */
 
-.offwhite-bg {
-	background: #f5f5f5;
-	padding-bottom: 50px;
-}
-
-.offwhite-bg .container {
-	margin-top: 0;
-}
-
-.offwhite-bg h1 {
+#skills {
+	background-color: #fff;
+	padding: 80px 0;
 	color: #000;
 }
 
-.offwhite-bg h3 {
-	color: #000;
+#skills h2 {
+	margin-bottom: 75px;
 }
 
-.skills-container {
-	text-align: center;
-	margin-bottom: 15px;
+#skills h3 {
+	font-size: 26px;
+	line-height: 36px;
+	font-weight: 300;
+	padding-right: 20px;
 }
 
-.skill-box {
-	background: #fff;
-	width: 300px;
-	height: 600px;
-	margin: 30px 10px 0;
-	padding-bottom: 20px;
-	border-radius: 5px;
+#skills p {
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: 300;
+	margin-top: 20px;
+	padding-right: 20px;
+}
+
+#skills-container {
+	padding: 0 100px 50px;
+	max-width: 1695px;
+	margin: 0 auto;
+}
+
+.skill-container {
+	width: 350px;
+	height: 325px;
+	background: #242524;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	display: inline-block;
+	vertical-align: top;
+	border-radius: 3px;
+}
+
+.skill-icon {
+	width: 45px;
 	display: inline-block;
 	vertical-align: top;
 }
 
-.skill-box img {
-	margin: 40px auto 20px auto;
-	display: block;
-}
-
-.skill-box h2 {
-	font-weight: 600;
-	font-size: 16px;
-	line-height: 24px;
-	text-align: center;
-	margin: 0 40px;
-	text-transform: uppercase;
-}
-
-.marketing-manager {
-	color: #2abe54;
-}
-
-.business-analyst {
-	color: #e646d0;
-}
-
-.designer-developer {
-	color: #ff3c20;
-}
-
-.specific-skill {
+.skill-details {
+	display: inline-block;
 	color: #fff;
-	width: 300px;
-	height: 50px;
-	border-radius: 5px;
-	text-align: center;
-	font-family: hero;
-	font-size: 18px;
-	line-height: 50px;
-	vertical-align: middle;
-	margin-top: 10px;
+	width: 220px;
+	margin-left: 20px;
 }
 
-.mkt-skill {
-	background: #61a072;
+.individual-skill {
+	padding-top: 100px;
+	padding-left: 50px;
 }
 
-.business-skill {
-	background: #ab6fa5;
-}
+#skills h3 {
 
-.dev-skill {
-	background: #d76251;
 }
-
-.skill-box p {
-	margin: 15px 30px;
-	font: 300 16px/24px Hero ;
-}
-
-#skills-icons {
-	/*width: 70%;*/
-	margin: 20px auto 0;
-	text-align: center;
-}
-
-#skills-icons img {
-	margin: 0 15px 20px;
-	height: 50px;
-}
-
 
 /* 
   ==================
@@ -566,69 +663,299 @@ section h3 {
   ==================
 */
 
-#testimony {
-	background: #fff;
-	padding-bottom: 50px;
-	text-align: center;
+#testimonials {
+	background-color: #181819;
+	padding: 105px 0;
 }
 
-#testimony h1 {
-	color: #000;
-	/*padding-top: 20px;*/
+#testimonials h2,
+#projects-container h2 {
+	font-family: "Charlevoix Pro";
+	font-weight: 600;
+	font-size: 60px;
+	text-transform: uppercase;
+	padding-bottom: 25px;
+	border-bottom: 1px solid #54545c;
+	margin-bottom: 50px;
+	margin-right: 40px;
+	margin-left: 40px;
 }
 
-.testimony-col1 {
-	text-align: right;
-	width: 420px;
+#testimonials-container {
+	margin: 0 auto;
+	max-width: 1450px;
+}
+
+.individual-testimonial {
+	font-family: "Gotham";
+	font-size: 19px;
+	line-height: 30px;
+	width: 390px;
 	display: inline-block;
-}
-
-.testimony-col2 {
-	text-align: left;
-	width: 420px;
-	display: inline-block;
+	margin-right: 40px;
+	margin-left: 40px;
 	vertical-align: top;
 }
 
-/* 
-TESTIMONIAL BOX w/float
-*/
-.testimonial-box {
-	width: 400px;
-	background: #ededed;
-	color: #89898a;
-	font-size: 21px;
-	line-height: 27px;
-	padding: 30px;
-	border-radius: 5px;
-	float: left;
-	vertical-align: top;
-	margin-bottom: 25px;
+.individual-testimonial:last-child {
+	border-bottom: none !important;
 }
 
-.testimonial-text {
-	color: #89898a;
-	margin-bottom: 10px;
-	font-style: italic;
+
+.testimonial-attribution-container {
+	margin-top: 25px;
+	position: relative;
+}
+
+.testimonial-headshot {
+	width: 100px;
+	display: inline-block;
+	margin-right: 25px;
+}
+
+.testimonial-attribution {
+	display: inline-block;
+	width: 210px;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
 }
 
 .testimonial-person {
-	color: #000;
-	text-transform: uppercase;
-	text-align: right;
-	font-size: 18px;
-	font-weight: 400;
-	line-height: 21px;
-
+	font-family: "Charlevoix Pro";
+	font-weight: 600;
+	font-size: 21px;
+	color: #fff;
+	margin-bottom: 10px;
 }
 
 .testimonial-title {
-	color: #be453d;
-	text-transform: uppercase;	
-	text-align: right;
-	font-size: 14px;
-	font-weight: 500;
-	line-height: 21px;
+	font-family: "Gotham";
+	font-size: 15px;
+	color: #c5c6c8;
+	line-height: 20px;
+}
+
+/* 
+  ==================
+  PROJECTS
+  ==================
+*/
+
+#projects-container,
+#press-container {
+	padding: 105px 0;
+	background-color: #181819;
+	width: -moz-calc(100% - 40px); 
+	width: -webkit-calc(100% - 40px);
+	width: calc(100% - 40px);
+	margin: 20px auto;
+}
+
+#projects-inner-container {
+	margin: 0 auto;
+	max-width: 1450px;
+}
+
+.individual-project {
+	width: 390px;
+	display: inline-block;
+	margin-right: 40px;
+	margin-left: 40px;
+	margin-bottom: 40px;
+	vertical-align: top;
+}
+
+.project-image {
+	width: 420px;
+}
+
+.project-title {
+	font-family: "Gotham";
+	font-size: 26px;
+	font-weight: 600;
+	line-height: 30px;
+	margin-top: 40px;
+	margin-bottom: 10px;
+}
+
+.project-description {
+	font-family: "Gotham";
+	font-size: 19px;
+	line-height: 30px;
+	margin-bottom: 15px;
+}
+
+.blue-project-button,
+.gray-project-button {
+	background-color: #0065a3;
+	color: #fff;
+	text-transform: uppercase;
+	padding: 22px 15px 15px;
+	border-radius: 3px;
+	border: 1px solid #0065a3;
+	font-size: 12px;
+	font-family: "Gotham";
+	font-weight: 600;
+	display: inline-block;
+}
+
+.gray-project-button {
+	background-color: #484951;
+	margin-left: 10px;
+	border: 1px solid #484951;
+}
+
+.blue-project-button:hover,
+.gray-project-button:hover {
+	background-color: #181819;
+	cursor: pointer;
+	border: 1px solid #fff;
+}
+
+.no-indent {
+	margin-left: 0;
+}
+
+/* 
+  ==================
+  EDUCATION
+  ==================
+*/
+
+#education-container {
+	background-color: #f3f3f2;
+	width: -moz-calc(100% - 40px); 
+	width: -webkit-calc(100% - 40px);
+	width: calc(100% - 40px);
+	margin: 20px auto;
+}
+
+#education-intro {
+	position: relative;
+}
+
+#education-image {
+	width: 50%;
+	display: inline-block;
+}
+
+#education-description {
+	display: inline-block;
+	width: 40%;
+	color: #303133;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	padding-left: 100px;
+}
+
+#education-description h2 {
+	font-family: "Charlevoix Pro";
+	font-weight: 600;
+	font-size: 60px;
+	margin-bottom: 40px;
+}
+
+#education-description p {
+	max-width: 500px;
+	font-family: "Gotham";
+	font-size: 19px;
+	line-height: 30px;
+	font-weight: 400;
+}
+
+.individual-education {
+	width: 33.2%;
+	height: 350px;
+	background-color: #0065a3;
+	margin-top: -5px;
+	margin-right: -2px;
+	display: inline-block;
+	vertical-align: top;
+	padding-top: 70px;
+	padding-left: 50px;	
+}
+
+.education-year {
+	font-family: "Gotham";
+	font-size: 19px;
+	font-weight: 300;
+	margin-bottom: 7px;
+	color: #c5c6c9;
+}
+
+.education-program {
+	font-family: "Gotham";
+	font-size: 28px;
+	line-height: 35px;
+	font-weight: 600;
+	line-height: 1.2;
+	margin-bottom: 2px;
+	max-width: 430px;
+}
+
+.education-school {
+	font-family: "Gotham";
+	font-size: 28px;
+	line-height: 30px;
+	font-weight: 300;
+	margin-bottom: 30px;
+}
+
+.individual-education li {
+	margin-bottom: 5px;
+	line-height: 20px;
+	max-width: 450px;
+}
+
+/* 
+  ==================
+  PRESS
+  ==================
+*/
+
+#press-inner-container {
+	max-width: 1450px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#press-inner-container h2 {
+	font-family: "Charlevoix Pro";
+	font-weight: 600;
+	font-size: 60px;
+	margin-bottom: 30px;
+	color: #fff;
+}
+
+#press-inner-container h3 {
+	font-family: "Gotham";
+	font-weight: 300;
+	font-size: 30px;
+	margin-bottom: 70px;
+	color: #fff;
+}
+
+.logo {
+	width: 250px;
+	height: 170px;
+	background-color: #fff;
+	display: inline-block;
+	margin-right: 30px;
+	vertical-align: top;
+	margin-bottom: 30px;
+}
+
+.logo img {
+	width: 170px;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.logo:hover {
+	opacity: 0.8;
 }
 
 /* 
@@ -637,32 +964,64 @@ TESTIMONIAL BOX w/float
   ==================
 */
 
-.footer {
-	text-align: center;
-	margin-bottom: 50px;
+footer {
+	height: 760px;
+	background-color: #181819;
+	position: relative;
 }
 
-.footer p {
-	width: 443px;
-	margin: 30px auto 0 auto;
-	color: white;
-	font: 18px/21px Hero;
-	text-align: center;
+#footer-style-box {
+	background-color: #0065a3;
+	width: 550px;
+	height: 600px;
+	position: absolute;
+	top: 70px;
+	/* right: 0px; */
+	right: 200px;
 }
 
-#shopify-commerce {
-	border: 5px solid #fff;
-	margin: 25px auto 0;
-	max-width: 80%;
-	border-radius: 5px;
+#footer-jude-photo {
+	position: absolute;
+	top: 150px;
+	/* right: 250px; */
+	right: 300px;
+	width: 520px;
 }
 
+#footer-information {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	margin-left: 270px;
+	width: 500px;
+	color: #fff;
+}
+
+#footer-information h2 {
+	font-family: "Legalitere";
+	font-size: 46px;
+	margin-bottom: 30px;
+}
+
+#footer-information p {
+	font-family: "Gotham";
+	font-size: 24px;
+	line-height: 30px;
+	margin-bottom: 30px;
+}
 
 /* 
   ==================
   MODAL
   ==================
 */
+
+	/* Prevent body scrolling when the modal is open  */
+	body.modal-open {
+		overflow: hidden !important;
+		position: fixed;
+		width: 100%;
+	}
 
 	.easy-modal,
 	.easy-modal-animated {
@@ -673,40 +1032,48 @@ TESTIMONIAL BOX w/float
 		border-radius: 5px;
 		max-height: 95%;
 		overflow: auto;
+		max-width: 1100px;
+		width: 90%; /* Add explicit width for margin: auto to work */
+		display: block; /* Ensure it's a block element */
 	}
 
 	.modal-header {
 		text-align: center;
 	}
 
-	.modal-header img {
-		margin-bottom: 10px;
-		border-radius: 3px;
-	}
-
-	.modal-header img:hover {
-		opacity: 0.9;
-	}
-
-	.modal-header h1 {
+	.modal-header p {
 		color: #000;
+		text-align: center;
+		font-family: "Gotham";
+		font-size: 19px;
+		width: 80%;
+		line-height: 1.3;
+		margin: -5px auto 25px;
+	}
+
+	.modal-header-company {
+		color: #000;
+		font-family: "Charlevoix Pro";
 		font-size: 30px;
 		text-transform: uppercase;
 		text-align: center;
-		padding-top: 20px;
-		padding-bottom: 5px;
+		margin-top: 20px;
+		margin-bottom: 10px;
 	}
 
-	.modal-header h2 {
+	.modal-header-title {
 		color: #000;
-		font-size: 14px;
+		font-family: "Charlevoix Pro";
+		font-size: 21px !important;
 		text-align: center;
 		padding-bottom: 10px;
 		text-transform: uppercase;
+		color: #0065a3;
+		margin-bottom: 20px;
 	}
 
 	.modal-container {
-		max-width: 960px;
+		/* max-width: 960px; */
 		font-family: Hero, "Helvetica Neue", Helvetica, Arial, sans-serif;
 		font-size: 17px;
 		line-height: 24px;
@@ -718,8 +1085,20 @@ TESTIMONIAL BOX w/float
 	}
 
 	.modal-container img {
-		max-width: 880px;
+		max-width: 100%;
 		margin-bottom: 15px;
+	}
+
+	.modal-image-small {
+		display: inline-block;
+		max-width: 495px !important;
+	}
+
+	.modal-image-caption {
+		font-size: 18px;
+		color: #666;
+		margin-top: -5px;
+		margin-bottom: 40px;
 	}
 
 	.modal-container a {
@@ -765,268 +1144,751 @@ TESTIMONIAL BOX w/float
 */
 
 /* ------------
-			1200PX
-	 ------------ */
+	1700PX
+------------ */
 
-@media screen and (max-width: 1200px) {
-	nav li {
-		font-size: 14px;
+@media screen and (max-width: 1700px) {
+	#header-jude-photo {
+		right: 20%;
 	}
+
+	#header-style-box {
+		right: 10%;
+		top: 8%;
+		width: 600px;
+		height: 500px;
+	}
+
+	footer {
+		height: auto;
+		padding-top: 100px;
+		padding-bottom: 75px;
+
+	}
+
+	#footer-jude-photo {
+		display: block;
+		position: relative;
+		width: 400px;
+		margin: 0 auto;
+		top: 0;
+		left: 0;
+	}
+
+	#footer-style-box {
+		width: 400px;
+		height: 350px;
+		left: 40%;
+	}
+
+	#footer-information {
+		display: block;
+		margin: 0 auto;
+	}
+    
+    #footer-information {
+        position: static;
+        transform: none;
+        margin: 30px auto 0;
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+    }
+
+	#footer-information h2 {
+		margin-top: 50px;
+	}
+
 }
 
 /* ------------
-			1040PX
-	 ------------ */
+	1650PX
+------------ */
 
-@media screen and (max-width: 1040px) {
-	nav li {
-		margin-left: 20px;
+@media screen and (max-width: 1650px) {
+	.individual-education {
+		padding-top: 40px;
+		padding-bottom: 40px;
 	}
 
-	.empty-job {
-		display: none;
-	}
-
-	.tile-top {
-		width: 200px;
-		height: 180px;
-	}
-
-	.tile-top img {
-		max-width: 150px;
-	}
-
-	.tile-bottom {
-		width: 200px;
-		height: 105px;
-		line-height: 20px;
-		padding: 0 20px;
-	}
-
-	#experience .tile-bottom {
-		height: 82px;
-	}
-
-	.white-bg {
-		padding: 0 50px 50px;
-	}
-
-	.easy-modal,
-	.easy-modal-animated {
-		width: -moz-calc(100% - 100px); 
-		width: -webkit-calc(100% - 100px);
-		width: calc(100% - 100px);
-	}
-
-	.modal-container img {
+	.education-program {
 		max-width: 100%;
 	}
 
-	.sortable img {
-		width: 100px;
+	.job-description {
+		display: block;
+		width: 800px;
+		max-width: 100%;
+		margin: 0 auto;
 	}
 
-	.modal-container p {
-		width: 100%;
-	}
-
-}
-
-/* ------------
-			992PX
-	 ------------ */
-
-@media screen and (max-width: 992px) {
-	.skill-box {
-		width: -moz-calc(100% - 40px); 
-		width: -webkit-calc(100% - 40px);
-		width: calc(100% - 40px);
-		height: auto;
-		margin-top: 20px;
-		margin-left: 20px;
-		margin-right: 20px;
-	}
-}
-
-
-/* ------------
-			880PX
-	 ------------ */
-
-@media screen and (max-width: 880px) {
-	nav li {
-		font-size: 18px;
-	}
-
-	nav {
-		padding: 10px 0;
-	}
-
-	nav ul {
-		line-height: 30px;
-	}
-
-	.splash-info h1 {
-		font-size: 50px;
-	}
-
-	.splash-image img {
-		width: 150px;
-	}
-
-	#my-story h1 {
-		padding-top: 85px;
-	}
-
-	nav li {
-		font-size: 18px;
-	}
-
-	nav {
-		padding: 10px 0;
-	}
-
-	nav ul {
-		line-height: 30px;
-	}
-
-	.testimonial-box {
-		width: 100%;
-	}
-
-	.testimony-col1,
-	.testimony-col2 {
-		width: -moz-calc(100% - 40px); 
-		width: -webkit-calc(100% - 40px);
-		width: calc(100% - 40px);
-		text-align: center;
-		margin: 0;
-	}
-
-	#testimony {
-		padding-bottom: 0;
+	.job-image {
+		display: block;
+		position: initial;
+		margin: 0 auto;
 	}
 }
 
 /* ------------
-			800PX
-	 ------------ */
+	1580PX
+------------ */
 
-@media screen and (max-width: 800px) {
-	.white-bg p {
-		font: 20px/34px "Noteworthy-Light", Helvetica, Arial, sans-serif;
-		margin-top: 10px;
+@media screen and (max-width: 1580px) {
+	#header-jude-photo {
+		width: 25%;
 	}
 
-	.sortable a img {
-		width: 100px;
-	}
-}
-
-/* ------------
-			750PX
-	 ------------ */
-
-@media screen and (max-width: 750px) {
-	.splash-info {
-		padding-right: 0;
+	#header-style-box {
+		width: 25%;
+		height: 45%;
+		top: 15%;
+		right: 15%
 	}
 
-	.splash-info h1 {
-		background: #465155;
-		padding: 20px;
+	#testimonials h2 {
+		margin-bottom: 0;
+	};
+
+	.testimonial-attribution-container {
+		margin-top: 25px !important;
+		margin-bottom: 25px;
+	}
+	
+	.individual-testimonial {
+		margin-left: 0;
 		margin-right: 0;
-	}
-
-	.splash-info h2 {
-		display: none;
-	}
-
-	.splash-image img {
-		display: none;
+		padding-top: 50px;
+		padding-bottom: 30px;
+		padding-left: 40px;
+		padding-right: 40px;	
+		border-bottom: 1px solid #54545c;
+		width: 100% !important;
 	}
 }
 
 /* ------------
-			600PX
-	 ------------ */
+	1350PX
+------------ */
 
-@media screen and (max-width: 600px) {
-	.press img {
-		width: 150px;
+@media screen and (max-width: 1350px) {
+	#header-jude-photo {
+		position: relative;
+		top: -85px;
+		left: 0px;
+		margin: 30px;
+		margin-left: 40px;
+		margin-top: 35px;
+		width: 300px;
+		z-index: 5;
+		display: inline-block;
 	}
 
-	.easy-modal,
-	.easy-modal-animated {
-		width: -moz-calc(100% - 20px); 
-		width: -webkit-calc(100% - 20px);
-		width: calc(100% - 20px);
+	#header-style-box {
+		width: 300px;
+		height: 275px;
+		top: 20px;
+		left: 20px;
+		z-index: 1;
 	}
-}
 
-/* ------------
-			565PX
-	 ------------ */
+	#header-information {
+		position: initial;
+		margin-left: 40px;
+		display: inline-block;
+		margin-top: 30px
+	}
 
-@media screen and (max-width: 565px) {
+	header {
+		height: 100%;
+		padding-bottom: 90px;
+	}
+
+	#my-story {
+		padding-left: 50px;
+		padding-right: 50px;
+	}
+
 	nav li {
 		font-size: 14px;
 	}
+
+	.individual-education {
+		padding: 30px;
+	}
+
+	.education-program {
+		font-size: 21px;
+	}
+
+	.education-school {
+		font-size: 26px;
+	}
+
 }
 
 /* ------------
-			500PX
-	 ------------ */
+	1065PX
+------------ */
 
-@media screen and (max-width: 500px) {
-	.footer p {
+@media screen and (max-width: 1065px) {
+	header {
+		padding-bottom: 70px;
+	}
+
+	.job-target-outer-container {
+		max-width: 100%;
+	}
+
+    /* Header adjustments */
+    header {
+        height: auto;
+        padding: 40px 20px 60px;
+    }
+    
+    #header-style-box {
+        width: 225px;
+		height: 225px;
+        top: 100px;
+        right: initial;
+		left: 0;
+    }
+    
+    #header-jude-photo {
+        position: relative;
+        top: -65px;
+        right: auto;
+        left: 0;
+        width: 250px;
+        margin: 0;
+        z-index: 10;
+    }
+    
+    #header-information {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        max-width: 500px;
+        margin: 30px 0;
+        margin-left: 70px !important;
+		z-index: 5;
+    } 
+    
+    #header-jude {
+        font-size: 80px;
+    }
+    
+    #header-fiorillo {
+        font-size: 65px;
+    }
+
+	#header-intro {
+		padding-left: 35px;
+	}
+    
+    #my-story-container {
+        width: 90%;
+		padding: 0;
+    }
+    
+    /* Experience section */
+    #experience {
+        padding: 20px 20px 0;
+    }
+
+	.job-inner-container {
+		width: -moz-calc(100% - 105px) !important; 
+		width: -webkit-calc(100% - 105px) !important;
+		width: calc(100% - 105px) !important;
+	}
+	 
+    .job-outer-container {
+        background-color: #f8f9fa !important;
+        border: 1px solid #e9ecef !important;
+        border-radius: 0 !important;
+        margin-bottom: 10px !important;
+        /* padding: 15px !important; */
+		padding: 15px 15px 5px !important;
+        min-height: auto !important;
+        height: auto !important;
+        position: static !important;
+        transform: none !important;
+    }
+    
+    .job-details-container {
+        background-color: #fff !important;
+        border: 1px solid #e9ecef !important;
+        border-radius: 8px !important;
+        margin-bottom: 20px !important;
+        padding: 20px !important;
+        color: #333 !important;
+        min-height: auto !important;
+        top: 0 !important;
+        position: static !important;
+    }
+    
+    .job-icon-container {
+        line-height: normal !important;
+		vertical-align: top !important;
+		margin-top: 20px !important;
+		background: none !important;
+    }
+
+	.job-inner-container {
+		width: -moz-calc(100% - 92px) !important; 
+		width: -webkit-calc(100% - 92px) !important;
+		width: calc(100% - 92px) !important;
+		margin-left: 20px !important;
+		border-top: none !important;
+		padding: 0 !important;
+		border-bottom: none !important;
+	}
+    
+    .job-title-company {
+        width: 100% !important;
+    }
+    
+    .job-title {
+        color: #333 !important;
+        font-size: 20px !important;
+        position: static !important;
+        top: auto !important;
+		line-height: 1.2;
+    }
+    
+    .job-company {
+        color: #0065a3 !important;
+        visibility: visible !important;
+        font-size: 16px !important;
+		line-height: 1.2;
+		margin-bottom: 7px !important;
+		margin-top: 5px !important;
+    }
+    
+    .job-date-arrow {
+        text-align: left !important;
+        width: 100% !important;
+        font-size: 14px !important;
+        color: #666 !important;
+        position: static !important;
+        top: auto !important;
+        right: auto !important;
+        float: none !important;
+    }
+    
+    .experience-arrow {
+        display: none !important;
+    }
+    
+    .job-description {
+        width: 100% !important;
+        margin: 0 !important;
+        font-size: 18px !important;
+        line-height: 24px !important;
+        margin-left: 0 !important;
+        margin-top: 0 !important;
+        display: block !important;
+    }
+    
+    .job-description p {
+        color: #000 !important;
+        margin-bottom: 15px !important;
+    }
+    
+    .job-image {
+        position: static !important;
+        width: 100% !important;
+        margin-top: 20px !important;
+        right: auto !important;
+        display: block !important;
+    }
+    
+    .job-image img {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+    }
+    
+    .job-more-details {
+        position: static !important;
+        bottom: auto !important;
+        right: auto !important;
+        margin-top: 15px !important;
+        display: inline-block !important;
+        background-color: #0065a3 !important;
+        color: #fff !important;
+        padding: 10px 20px !important;
+        text-transform: uppercase !important;
+        font-family: "Charlevoix Pro" !important;
+        font-weight: 600 !important;
+        font-size: 14px !important;
+        border-radius: 3px !important;
+    }
+    
+    #my-story {
+        padding: 60px 20px;
+    }
+    
+    #experience h2,
+    #skills h2 {
+        font-size: 40px;
+        margin-bottom: 30px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    #my-story h2 {
+        font-size: 40px;
+        margin-bottom: 20px;
+    }
+
+	#projects h2,
+	#education h2,
+	#press h2 {
+		font-size: 40px;
+	}
+
+	#testimonials h2 {
+		font-size: 35px;
+	}
+
+    #projects-container h2 {
+        margin: 0 20px 40px;
+    }
+    
+    #my-story p {
+        font-size: 24px;
+        line-height: 36px;
+    }
+
+    /* Skills section */
+    #skills {
+        padding: 60px 0;
+    }
+    
+    #skills-container {
+        padding: 0 20px 30px;
+    }
+    
+    .skill-container {
+        width: 100%;
+        height: auto;
+        margin-right: 0;
+        margin-bottom: 15px;
+        padding: 30px 20px;
+    }
+    
+    .individual-skill {
+        padding-top: 0;
+        padding-left: 0;
+    }
+    
+    #testimonials {
+        padding: 60px 0;
+    }
+    
+    .individual-testimonial {
+        width: 100%;
+        margin: 0;
+        font-size: 16px;
+        line-height: 24px;
+    }
+    
+    /* Projects mobile */
+	#projects-container,
+    #press-container {
+        padding: 60px 0 40px;
+        width: calc(100% - 20px);
+        margin: 10px auto;
+    }
+    
+	.individual-project {
 		width: 100%;
-		padding: 0 20px;
-	}
-
-	.white-bg p {
 		text-align: center;
+		padding: 10px;
 	}
+	
+    .individual-project {
+        margin: 0 0 40px;
+    }
+    
+    .project-image {
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    .project-title {
+        font-size: 22px;
+        margin-top: 20px;
+    }
+    
+    .project-description {
+        font-size: 16px;
+        line-height: 24px;
+		padding: 0 40px;
+    }
+    
+    #education-intro {
+        display: block;
+    }
+    
+    #education-image {
+        width: 100%;
+        display: block;
+    }
+    
+    #education-description {
+        position: static;
+        width: 100%;
+        padding: 40px 20px;
+        transform: none;
+    }
+    
+    #education-description h2 {
+        font-size: 50px;
+    }
+    
+    #education-description p {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    
+    .individual-education {
+        width: 100%;
+        height: auto;
+        margin: 5px 0;
+        padding: 40px 30px;
+        display: block;
+    }
+    
+    /* Press mobile */
+    #press-inner-container h2 {
+        font-size: 50px;
+    }
+    
+    #press-inner-container h3 {
+        font-size: 24px;
+        margin-bottom: 40px;
+        padding: 0 20px;
+    }
+    
+    .logo {
+        width: 200px;
+        height: 120px;
+        margin: 10px;
+    }
+    
+    .logo img {
+        width: 120px;
+    }
 }
 
 /* ------------
-			476PX
-	 ------------ */
+	880PX
+------------ */
 
-@media screen and (max-width: 476px) {
-	nav {
+@media screen and (max-width: 880px) {
+	 /* Header mobile layout */
+    header {
+        padding: 20px 15px 40px;
+        text-align: center;
+    }
+    
+    #header-style-box {
+        width: 250px;
+		max-width: 200px;
+        height: 180px;
+        top: 10px;
+        right: 10%;
+        left: 33%;
+    }
+    
+    #header-jude-photo {
+        width: 200px;
+        margin: 15px auto;
+        display: block;
+		top: 0;
+    }
+    
+    div#header-information {
+        width: 90%;
+        max-width: none;
+        margin: 20px 0;
+        text-align: center;
+		margin-left: 0 !important;
+    }
+    
+    #header-intro {
+        padding-left: 0;
+        font-size: 28px;
+    }
+    
+    #header-jude {
+        font-size: 60px;
+    }
+    
+    #header-fiorillo {
+        font-size: 48px;
+    }
+    
+    #header-title {
+        font-size: 21px;
+    }
+    
+    #header-description {
+        font-size: 16px;
+        line-height: 24px;
+    }
+    
+    /* Buttons stack on mobile */
+    .blue-button,
+    .gray-button {
+        display: block;
+        width: 200px;
+        margin: 10px auto;
+        text-align: center;
+    }
+
+    #linkedin-icon {
+        display: block;
+        text-align: center;
+        margin: 10px auto;
+    }
+
+    .gray-button {
+        margin-left: auto;
+    }
+}
+
+/* ------------
+    768PX
+------------ */
+
+@media screen and (max-width: 768px) {    
+
+	#nav-container {
 		display: none;
 	}
 
-	#my-story h1,
-	section h1 {
-		padding-top: 40px;
+	
+	#press-inner-container h3 {
+        margin-bottom: 20px;
+    }
+
+	.logo {
+		width: 120px;
+		height: 80px;
+	}
+    
+	.logo img {
+		width: 80px;
 	}
 
-	.tile {
-		width: -moz-calc(100% - 40px); 
-		width: -webkit-calc(100% - 40px);
-		width: calc(100% - 40px);
-		margin-bottom: 20px;
-	}
+    footer {
+        height: auto;
+        padding: 40px 20px;
+        text-align: center;
+    }
+    
+    #footer-style-box {
+        width: 50%;
+		/* top: 3%; */
+		top: 25px;
 
-	.tile-top {
-		width: 100%;
-	}
+		left: 30%;
+		height: 200px;
+    }
+    
 
-	.tile-bottom {
-		width: 100%;
-		height: 60px;
-		/*line-height: 20px;*/
-		/*padding: 0 20px;*/
-	}
+	 #footer-jude-photo {
+        width: 50%;
+    }
+    
+    #footer-information {
+        position: static;
+        transform: none;
+        margin: 30px auto 0;
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+    }
+    
+    #footer-information h2 {
+        font-size: 36px;
+    }
+    
+    #footer-information p {
+        font-size: 18px;
+        line-height: 24px;
+    }
+}
 
-	#experience .tile-bottom {
-		height: 60px;
-	}
+/* ------------
+    480PX
+------------ */
+
+@media screen and (max-width: 480px) {
+    #header-jude {
+        font-size: 45px;
+    }
+    
+    #header-fiorillo {
+        font-size: 36px;
+    }
+    
+    #header-intro {
+        font-size: 24px;
+    }
+    
+    #my-story h2,
+    #experience h2,
+    #skills h2 {
+        font-size: 32px;
+    }
+    
+    #my-story p {
+        font-size: 20px;
+        line-height: 30px;
+    }
+    
+    .job-title {
+        font-size: 18px;
+    }
+    
+    .job-company {
+        font-size: 16px;
+    }
+
+	.project-image {
+    	width: 80%;
+    }
+    
+    #education-description h2,
+    #press-inner-container h2,
+    #footer-information h2 {
+        font-size: 28px;
+    }
+    
+    /* Ensure no horizontal scroll */
+    body {
+        overflow-x: hidden;
+    }
+    
+    * {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
 }
 
 
+/* ------------
+400PX
+------------ */
 
+@media screen and (max-width: 400px) {
+	.testimonial-headshot {
+		width: 75px;
+	}
+}
 
 
