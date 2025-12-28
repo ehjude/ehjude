@@ -77,7 +77,17 @@ table {
 @font-face {
  font-family: 'Charlevoix Pro';
   src: url(/assets/fonts/CharlevoixPro-Black.otf);
+  font-weight: 900;
+  font-style: normal;
 }
+
+@font-face {
+   font-family: 'Charlevoix Pro';
+      src: url(/assets/fonts/CharlevoixPro-Regular.otf);
+   font-weight: 300;
+   font-style: normal;
+}
+
 
 @font-face {
  font-family: 'Gotham';
@@ -484,18 +494,21 @@ a.underline-hover {
 .job-title-company {
 	display: inline-block;
 	font-family: "Charlevoix Pro";
+	font-weight: 300;
 	width: 100%;
 	position: relative;
 }
 
 .job-title {
+	font-family: "Charlevoix Pro";
+	font-weight: 300;
 	font-size: 26px;
-	font-weight: 400 !important;
+	/* font-weight: 400; */
 }
 
 .job-company {
 	font-size: 20px;
-	font-weight: 500 !important;
+	/* font-weight: 500; */
 	color: #0065a3;
 	margin-top: 10px;
 }
@@ -506,6 +519,7 @@ a.underline-hover {
     top: 16px;
 	width: 212px;
 	font-family: "Charlevoix Pro";
+	/* font-family: "Charlevoix Pro Light"; */
 	font-size: 18px;
 	font-weight: 600;
     text-align: right;
