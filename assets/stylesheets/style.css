@@ -1103,7 +1103,8 @@ footer {
 
 	.modal-image-small {
 		display: inline-block;
-		max-width: 495px !important;
+		width: 495px !important;
+		max-width: 100% !important;
 	}
 
 	.modal-image-caption {
