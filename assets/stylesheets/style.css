@@ -508,7 +508,6 @@ a.underline-hover {
 
 .job-company {
 	font-size: 20px;
-	/* font-weight: 500; */
 	color: #0065a3;
 	margin-top: 10px;
 }
@@ -519,9 +518,8 @@ a.underline-hover {
     top: 16px;
 	width: 212px;
 	font-family: "Charlevoix Pro";
-	/* font-family: "Charlevoix Pro Light"; */
 	font-size: 18px;
-	font-weight: 600;
+	font-weight: 300;
     text-align: right;
 }
 
