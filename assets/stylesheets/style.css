@@ -490,12 +490,12 @@ a.underline-hover {
 
 .job-title {
 	font-size: 26px;
-	font-weight: 400;
+	/* font-weight: 400; */
 }
 
 .job-company {
 	font-size: 20px;
-	font-weight: 500;
+	/* font-weight: 500; */
 	color: #0065a3;
 	margin-top: 10px;
 }
