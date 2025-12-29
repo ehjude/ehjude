@@ -1439,6 +1439,10 @@ footer {
         top: 0 !important;
         position: static !important;
     }
+
+	.job-details-container a {
+		color: #0065a3 !important;
+	}
     
     .job-icon-container {
         line-height: normal !important;
