@@ -38,8 +38,13 @@ $(document).on("ready page:load", function (){
         $('.job-inner-container', this).css({'padding-left': '0'});
     });
 
-    // Mobile touch handlers
-    $("#experience").on("touchstart", ".job-target-container", function(event) {
+    // Prevent touch events from bubbling up from job details content
+    $("#experience").on("touchstart touchmove touchend", ".job-details-container", function(event) {
+        event.stopPropagation();
+    });
+
+    // Mobile touch handlers - ONLY attach to the clickable header area
+    $("#experience").on("touchstart", ".job-outer-container", function(event) {
         if (isMobile()) {
             startY = event.originalEvent.touches[0].pageY;
             startTime = Date.now();
@@ -47,7 +52,7 @@ $(document).on("ready page:load", function (){
         }
     });
 
-    $("#experience").on("touchmove", ".job-target-container", function(event) {
+    $("#experience").on("touchmove", ".job-outer-container", function(event) {
         if (isMobile()) {
             const currentY = event.originalEvent.touches[0].pageY;
             const deltaY = Math.abs(currentY - startY);
@@ -59,7 +64,7 @@ $(document).on("ready page:load", function (){
         }
     });
 
-    $("#experience").on("touchend", ".job-target-container", function(event) {
+    $("#experience").on("touchend", ".job-outer-container", function(event) {
         if (isMobile()) {
             const duration = Date.now() - startTime;
             
@@ -70,20 +75,22 @@ $(document).on("ready page:load", function (){
                 event.preventDefault();
                 event.stopPropagation();
                 
+                // Find the parent job-target-container
+                const jobTargetContainer = $(this).closest('.job-target-container');
+                
                 // Mobile accordion behavior
-                var isCurrentlyOpen = $(this).hasClass('mobile-open');
-                var clickedJobContainer = $(this);
+                var isCurrentlyOpen = jobTargetContainer.hasClass('mobile-open');
                 
                 $('.job-target-container').removeClass('mobile-open');
                 $(".job-details-container").slideUp(300);
                 
                 if (!isCurrentlyOpen) {
-                    clickedJobContainer.addClass('mobile-open');
-                    clickedJobContainer.next('.job-details-container').slideDown(300);
+                    jobTargetContainer.addClass('mobile-open');
+                    jobTargetContainer.next('.job-details-container').slideDown(300);
                     
                     setTimeout(function() {
                         $([document.documentElement, document.body]).animate({
-                            scrollTop: clickedJobContainer.offset().top - 10
+                            scrollTop: jobTargetContainer.offset().top - 10
                         }, 500);
                     }, 350);
                 }
