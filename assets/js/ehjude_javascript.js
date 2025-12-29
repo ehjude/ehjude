@@ -168,10 +168,13 @@ $(document).on("ready page:load", function (){
 	$(function() {
 		var scrollPosition = 0;
 		
-		$('.easy-modal').easyModal({
+		// Initialize ALL modals with consistent centering options
+		$('.easy-modal, .easy-modal-animated').easyModal({
 			top: 60,
 			overlay: 0.2,
 			overlayOpacity: 0.7,
+			autoOpen: false,
+			closeOnEscape: true,
 			onOpen: function(myModal) {
 				// Store current scroll position
 				scrollPosition = $(window).scrollTop();
@@ -195,30 +198,10 @@ $(document).on("ready page:load", function (){
 		});
 
 		$('.easy-modal-close').click(function(e) {
-			$('.easy-modal').trigger('closeModal');
+			$('.easy-modal, .easy-modal-animated').trigger('closeModal');
 		});
 
-		$('.easy-modal-animated').easyModal({
-			top: 60,
-			overlay: 0.2,
-			transitionIn: 'animated bounceInLeft',
-			transitionOut: 'animated bounceOutRight',
-			closeButtonClass: '.animated-close',
-			onOpen: function(myModal) {
-				// Store current scroll position
-				scrollPosition = $(window).scrollTop();
-				
-				// Disable body scrolling when modal opens
-				$('body').addClass('modal-open').css('top', -scrollPosition + 'px');
-			},
-			onClose: function(myModal) {
-				// Re-enable body scrolling when modal closes
-				$('body').removeClass('modal-open').css('top', '');
-				
-				// Restore scroll position
-				$(window).scrollTop(scrollPosition);
-			}
-		});
+		// Remove the separate .easy-modal-animated initialization since we're handling both together now
 	});
 
 	
