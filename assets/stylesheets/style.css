@@ -1750,6 +1750,7 @@ footer {
     
     #header-title {
         font-size: 21px;
+		line-height: 1.2;
     }
     
     #header-description {
