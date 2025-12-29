@@ -43,8 +43,8 @@ $(document).on("ready page:load", function (){
         event.stopPropagation();
     });
 
-    // Mobile touch handlers - ONLY attach to the clickable header area
-    $("#experience").on("touchstart", ".job-outer-container", function(event) {
+    // Mobile touch handlers - ONLY attach to the inner clickable area (not the whole container)
+    $("#experience").on("touchstart", ".job-inner-container", function(event) {
         if (isMobile()) {
             startY = event.originalEvent.touches[0].pageY;
             startTime = Date.now();
@@ -52,26 +52,26 @@ $(document).on("ready page:load", function (){
         }
     });
 
-    $("#experience").on("touchmove", ".job-outer-container", function(event) {
+    $("#experience").on("touchmove", ".job-inner-container", function(event) {
         if (isMobile()) {
             const currentY = event.originalEvent.touches[0].pageY;
             const deltaY = Math.abs(currentY - startY);
             
-            // If user moved more than 5px, consider it a scroll
-            if (deltaY > 5) {
+            // More generous threshold - if user moved more than 15px, consider it a scroll
+            if (deltaY > 15) {
                 hasMoved = true;
             }
         }
     });
 
-    $("#experience").on("touchend", ".job-outer-container", function(event) {
+    $("#experience").on("touchend", ".job-inner-container", function(event) {
         if (isMobile()) {
             const duration = Date.now() - startTime;
             
             // Only trigger accordion if:
-            // - Touch was quick (< 200ms)
+            // - Touch was quick (< 300ms) - increased from 200ms
             // - User didn't move much (not a scroll)
-            if (duration < 200 && !hasMoved) {
+            if (duration < 300 && !hasMoved) {
                 event.preventDefault();
                 event.stopPropagation();
                 
