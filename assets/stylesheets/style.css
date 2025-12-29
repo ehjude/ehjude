@@ -260,12 +260,17 @@ header {
 	background-color: #0065a3;
 	color: #fff;
 	text-transform: uppercase;
-	padding: 10px 40px 12px;
+	/* padding: 10px 40px 12px; */
+	/* height: 50px; */
+	padding: 0 25px;
+	line-height: 50px;
+	vertical-align: middle;
 	border-radius: 3px;
 	border: 1px solid #0065a3;
 	font-size: 15px;
+	/* font-family: "Charlevoix Pro"; */
 	font-family: "Charlevoix Pro";
-	font-weight: 600;
+	font-weight: 300;
 }
 
 .gray-button {
@@ -283,7 +288,7 @@ header {
 }
 
 .blue-project-button {
-	padding: 10px 20px 12px;
+	/* padding: 10px 20px 12px; */
 }
 
 /* 
@@ -803,7 +808,7 @@ a.underline-hover {
 	background-color: #0065a3;
 	color: #fff;
 	text-transform: uppercase;
-	padding: 22px 15px 15px;
+	/* padding: 22px 15px 15px; */
 	border-radius: 3px;
 	border: 1px solid #0065a3;
 	font-size: 12px;
@@ -1420,8 +1425,7 @@ footer {
         border: 1px solid #e9ecef !important;
         border-radius: 0 !important;
         margin-bottom: 10px !important;
-        /* padding: 15px !important; */
-		padding: 15px 15px 5px !important;
+		padding: 15px 15px 15px !important;
         min-height: auto !important;
         height: auto !important;
         position: static !important;
