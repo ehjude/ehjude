@@ -1571,10 +1571,13 @@ footer {
 	#education h2,
 	#press h2 {
 		font-size: 40px;
+		line-height: 1.1;
+
 	}
 
 	#testimonials h2 {
 		font-size: 35px;
+		line-height: 1.2;
 	}
 
     #projects-container h2 {
@@ -1626,6 +1629,11 @@ footer {
         width: calc(100% - 20px);
         margin: 10px auto;
     }
+
+	#education-container {
+		margin: 10px auto;
+		width: calc(100% - 20px);
+	}
     
 	.individual-project {
 		width: 100%;
