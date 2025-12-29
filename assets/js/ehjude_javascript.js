@@ -4,7 +4,12 @@ $(document).on("ready page:load", function (){
         return window.innerWidth <= 1050;
     }
     
-	// EXPERIENCE - Modified for responsive behavior
+    // Touch tracking variables for mobile
+    let startY = 0;
+    let startTime = 0;
+    let hasMoved = false;
+    
+    // EXPERIENCE - Modified for responsive behavior
     $("#experience-container" ).on( "mouseenter", ".job-target-outer-container", function( event ) {
         // Skip hover effects on mobile/tablet
         if (isMobile()) {
@@ -33,146 +38,39 @@ $(document).on("ready page:load", function (){
         $('.job-inner-container', this).css({'padding-left': '0'});
     });
 
-    // Simple solution: Use different events for mobile vs desktop
-    if (isMobile()) {
-        // Mobile: Use touchend only
-        $("#experience").on("touchend", ".job-target-container", function(event) {
-            event.preventDefault();
-            event.stopPropagation();
-            
-            // Mobile accordion behavior
-            var isCurrentlyOpen = $(this).hasClass('mobile-open');
-            var clickedJobContainer = $(this);
-            
-            $('.job-target-container').removeClass('mobile-open');
-            $(".job-details-container").slideUp(300);
-            
-            if (!isCurrentlyOpen) {
-                clickedJobContainer.addClass('mobile-open');
-                clickedJobContainer.next('.job-details-container').slideDown(300);
-                
-                setTimeout(function() {
-                    $([document.documentElement, document.body]).animate({
-                        scrollTop: clickedJobContainer.offset().top - 10
-                    }, 500);
-                }, 350);
-            }
-        });
-    } else {
-        // Desktop: Use click only
-        $("#experience").on("click", ".job-target-container", function(event) {
-            event.preventDefault();
-            
-            // Desktop accordion behavior - improved logic
-            var currentMaxWidth = $('.job-target-outer-container', this).css('max-width');
-            var isCurrentlyOpen = false;
-            
-            if (currentMaxWidth === 'none') {
-                isCurrentlyOpen = true;
-            } else {
-                var maxWidthValue = parseInt(currentMaxWidth);
-                if (!isNaN(maxWidthValue) && maxWidthValue > 1050) {
-                    isCurrentlyOpen = true;
-                } else if (currentMaxWidth === '100%' || currentMaxWidth.includes('%')) {
-                    isCurrentlyOpen = true;
-                }
-            }
-            
-            var detailsVisible = $(this).next('.job-details-container').is(':visible');
-            
-            if (isCurrentlyOpen || detailsVisible) {
-                // Close this accordion
-                $(".job-details-container").hide();
-                $('.job-target-outer-container', this).css({'max-width': '1050px'});
-                $('.job-outer-container', this).css({
-                    'padding-left': '25px',
-                    'border-top': '0px',
-                    'border-radius': '5px'
-                });
-                $('.job-inner-container', this).css({'width': '899px'});
-            } else { 
-                // Close all other accordions first 
-                $('.job-target-outer-container').not(this).css({'max-width': '1050px'});
-                $('.job-outer-container').not($(this).find('.job-outer-container')).css({
-                    'padding-left': '25px',
-                    'border-top': '0px',
-                    'border-radius': '5px'
-                });
-                $('.job-inner-container').not($(this).find('.job-inner-container')).css({'width': '899px'});
-                $(".job-details-container").hide();
-
-                // Open this accordion with responsive widths
-                var windowWidth = $(window).width();
-                var containerWidth = windowWidth > 1200 ? '100%' : '95%';
-                var innerWidth = windowWidth > 1200 ? '1150px' : 'calc(100% - 105px)';
-                var paddingLeft = windowWidth > 1200 ? '175px' : '20px';
-
-                $('.job-target-outer-container', this).css({'max-width': containerWidth});
-                $('.job-outer-container', this).css({
-                    'padding-left': paddingLeft,
-                    'border-top': '1px solid #ccd0d2',
-                    'border-radius': '0'
-                });
-                $('.job-inner-container', this).css({'width': innerWidth});
-
-                $(this).next('.job-details-container').show();
-
-                $([document.documentElement, document.body]).animate({
-                    scrollTop: $(".job-outer-container", this).offset().top - 60
-                }, 700);
-
-                $("#experience-container" ).on( "mouseenter", ".job-target-outer-container", function( event ) {
-                    $('.job-outer-container', this).css({'background-color': '#0065a3'});
-                }).on( "mouseleave", ".job-target-container", function( event ) {
-                    $('.job-outer-container', this).css({'background-color': '#fff'});
-                });
-            }
-        });
-    }
-
-    // Handle window resize to rebind events if needed
-    $(window).on('resize', function() {
-        // Remove all previous event handlers
-        $("#experience").off("click touchend", ".job-target-container");
-        
-        // Reset accordion states
-        $('.job-target-container').removeClass('mobile-open');
-        $('.job-target-outer-container').css({'max-width': '1050px'});
-        $('.job-outer-container').css({
-            'padding-left': '25px',
-            'background-color': '#fff',
-            'border-top': '0px',
-            'border-radius': '5px'
-        });
-        
+    // Mobile touch handlers
+    $("#experience").on("touchstart", ".job-target-container", function(event) {
         if (isMobile()) {
-            $('.job-inner-container').css({
-                'border-top': 'none',
-                'color': '#181819'
-            });
-        } else {
-            $('.job-inner-container').css({
-                'width': '899px',
-                'border-top': '1px solid #ccd0d2',
-                'color': '#181819'
-            });
+            startY = event.originalEvent.touches[0].pageY;
+            startTime = Date.now();
+            hasMoved = false;
         }
+    });
 
-        $('.job-company').css({
-            'color': '#0065a3',
-            'visibility': 'initial'
-        });
-        $('.job-date-arrow').css({'right': '0'});
-        $('.experience-arrow').attr('src','assets/images/arrow.png');
-        $(".job-details-container").hide();
-        
-        // Re-bind appropriate event handler based on current screen size
+    $("#experience").on("touchmove", ".job-target-container", function(event) {
         if (isMobile()) {
-            $("#experience").on("touchend", ".job-target-container", function(event) {
-                // Mobile touchend handler (same as above)
+            const currentY = event.originalEvent.touches[0].pageY;
+            const deltaY = Math.abs(currentY - startY);
+            
+            // If user moved more than 5px, consider it a scroll
+            if (deltaY > 5) {
+                hasMoved = true;
+            }
+        }
+    });
+
+    $("#experience").on("touchend", ".job-target-container", function(event) {
+        if (isMobile()) {
+            const duration = Date.now() - startTime;
+            
+            // Only trigger accordion if:
+            // - Touch was quick (< 200ms)
+            // - User didn't move much (not a scroll)
+            if (duration < 200 && !hasMoved) {
                 event.preventDefault();
                 event.stopPropagation();
                 
+                // Mobile accordion behavior
                 var isCurrentlyOpen = $(this).hasClass('mobile-open');
                 var clickedJobContainer = $(this);
                 
@@ -189,11 +87,130 @@ $(document).on("ready page:load", function (){
                         }, 500);
                     }, 350);
                 }
-            });
-        } else {
-            // Re-bind desktop click handler (would be the same desktop code as above)
+            }
         }
     });
+
+    // Desktop click handler - only for desktop
+    $("#experience").on("click", ".job-target-container", function(event) {
+        // Skip if mobile (touch events handle it)
+        if (isMobile()) {
+            return;
+        }
+        
+        event.preventDefault();
+        
+        // Desktop accordion behavior - improved logic
+        var currentMaxWidth = $('.job-target-outer-container', this).css('max-width');
+        var isCurrentlyOpen = false;
+        
+        if (currentMaxWidth === 'none') {
+            isCurrentlyOpen = true;
+        } else {
+            var maxWidthValue = parseInt(currentMaxWidth);
+            if (!isNaN(maxWidthValue) && maxWidthValue > 1050) {
+                isCurrentlyOpen = true;
+            } else if (currentMaxWidth === '100%' || currentMaxWidth.includes('%')) {
+                isCurrentlyOpen = true;
+            }
+        }
+        
+        var detailsVisible = $(this).next('.job-details-container').is(':visible');
+        
+        if (isCurrentlyOpen || detailsVisible) {
+            // Close this accordion
+            $(".job-details-container").hide();
+            $('.job-target-outer-container', this).css({'max-width': '1050px'});
+            $('.job-outer-container', this).css({
+                'padding-left': '25px',
+                'border-top': '0px',
+                'border-radius': '5px'
+            });
+            $('.job-inner-container', this).css({'width': '899px'});
+        } else { 
+            // Close all other accordions first 
+            $('.job-target-outer-container').not(this).css({'max-width': '1050px'});
+            $('.job-outer-container').not($(this).find('.job-outer-container')).css({
+                'padding-left': '25px',
+                'border-top': '0px',
+                'border-radius': '5px'
+            });
+            $('.job-inner-container').not($(this).find('.job-inner-container')).css({'width': '899px'});
+            $(".job-details-container").hide();
+
+            // Open this accordion with responsive widths
+            var windowWidth = $(window).width();
+            var containerWidth = windowWidth > 1200 ? '100%' : '95%';
+            var innerWidth = windowWidth > 1200 ? '1150px' : 'calc(100% - 105px)';
+            var paddingLeft = windowWidth > 1200 ? '175px' : '20px';
+
+            $('.job-target-outer-container', this).css({'max-width': containerWidth});
+            $('.job-outer-container', this).css({
+                'padding-left': paddingLeft,
+                'border-top': '1px solid #ccd0d2',
+                'border-radius': '0'
+            });
+            $('.job-inner-container', this).css({'width': innerWidth});
+
+            $(this).next('.job-details-container').show();
+
+            $([document.documentElement, document.body]).animate({
+                scrollTop: $(".job-outer-container", this).offset().top - 60
+            }, 700);
+
+            // When hovering over job title bar, change background to blue
+            $("#experience-container" ).on( "mouseenter", ".job-target-outer-container", function( event ) {
+                $('.job-outer-container', this).css({'background-color': '#0065a3'});
+            }).on( "mouseleave", ".job-target-container", function( event ) {
+                $('.job-outer-container', this).css({'background-color': '#fff'});
+            });
+        }
+    });
+
+	// Also update your resize handler:
+	$(window).on('resize', function() {
+		$('.job-target-container').removeClass('mobile-open');
+		$('.job-target-outer-container').css({'max-width': '1050px'});
+		$('.job-outer-container').css({
+			'padding-left': '25px',
+			'background-color': '#fff',
+			'border-top': '0px',
+			'border-radius': '5px'
+		});
+		
+		if (isMobile()) {
+			$('.job-inner-container').css({
+				'border-top': 'none',
+				'color': '#181819'
+			});
+		} else {
+			$('.job-inner-container').css({
+				'width': '899px', // Use actual CSS width instead of 'initial'
+				'border-top': '1px solid #ccd0d2',
+				'color': '#181819'
+			});
+		}
+
+		$('.job-company').css({
+			'color': '#0065a3',
+			'visibility': 'initial'
+		});
+		$('.job-date-arrow').css({'right': '0'});
+		$('.experience-arrow').attr('src','assets/images/arrow.png');
+		$('.job-title-company').css({'width': '664px'});
+		$('.job-icon').css('top','-10px');
+		$('.job-icon-container').css({
+			'height':'66px',
+			'width': 'initial'
+		});
+		$('.job-title').css({
+			'top': '0',
+			'font-size': '26px'
+		});
+		
+		$(".job-details-container").hide();
+	});
+
 
 
 
