@@ -1,5 +1,5 @@
 $(document).on("ready page:load", function (){
-	// Check if we're on mobile/tablet
+    // Check if we're on mobile/tablet
     function isMobile() {
         return window.innerWidth <= 1050;
     }
@@ -33,68 +33,71 @@ $(document).on("ready page:load", function (){
         $('.job-inner-container', this).css({'padding-left': '0'});
     });
 
-    // Block any accordion actions when clicking inside expanded content
-    $(document).on('click touchend', '.job-details-container', function(e) {
-        e.stopPropagation();
-        // Let scrolling and other interactions happen normally within content
-        // Just prevent the event from bubbling up to trigger accordion close
+    // FIX: Block interactions within job-details-container to prevent accidental accordion closure
+    $(document).on('click touchend touchstart', '.job-details-container', function(e) {
+        if (isMobile()) {
+            e.stopPropagation();
+        }
     });
 
-    // SINGLE accordion implementation
-    $("#experience").on("click", ".job-target-container", function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        
-        // Get the associated panel
-        var panel = $(this).next('.job-details-container');
-        var isCurrentlyOpen = $(this).hasClass('active');
+    // FIX: Block interactions on ALL child elements within job-details-container (including <p> tags)
+    $(document).on('click touchend touchstart', '.job-details-container *', function(e) {
+        if (isMobile()) {
+            e.stopPropagation();
+        }
+    });
+
+    // Modified click handler for responsive accordion
+    $("#experience" ).on( "click", ".job-target-container", function( event ) {
+        event.preventDefault();
         
         if (isMobile()) {
-            // Mobile behavior - simple toggle WITHOUT auto-scroll
-            if (isCurrentlyOpen) {
-                // Close this panel
-                $(this).removeClass('active');
-                panel.slideUp(300);
-            } else {
-                // Close all other panels first
-                $('.job-target-container').removeClass('active');
-                $('.job-details-container').slideUp(300);
+            // Mobile accordion behavior - simplified
+            var isCurrentlyOpen = $(this).hasClass('mobile-open');
+            var clickedJobContainer = $(this);
+            
+            $('.job-target-container').removeClass('mobile-open');
+            $(".job-details-container").slideUp(300);
+            
+            if (!isCurrentlyOpen) {
+                clickedJobContainer.addClass('mobile-open');
+                clickedJobContainer.next('.job-details-container').slideDown(300);
                 
-                // Open this panel
-                $(this).addClass('active');
-                panel.slideDown(300);
-                
-                // REMOVE THE AUTO-SCROLL - this was causing the conflict
-                // User can scroll manually without interference
+                setTimeout(function() {
+                    $([document.documentElement, document.body]).animate({
+                        // scrollTop: clickedJobContainer.offset().top - 70
+                        scrollTop: clickedJobContainer.offset().top - 10
+                    }, 500);
+                }, 350);
             }
         } else {
-            // Desktop behavior - your existing complex layout changes
+            // Desktop accordion behavior - improved logic
             var currentMaxWidth = $('.job-target-outer-container', this).css('max-width');
-            var isCurrentlyOpenDesktop = false;
+            var isCurrentlyOpen = false;
             
             if (currentMaxWidth === 'none') {
-                isCurrentlyOpenDesktop = true;
+                isCurrentlyOpen = true;
             } else {
                 var maxWidthValue = parseInt(currentMaxWidth);
                 if (!isNaN(maxWidthValue) && maxWidthValue > 1050) {
-                    isCurrentlyOpenDesktop = true;
+                    isCurrentlyOpen = true;
                 } else if (currentMaxWidth === '100%' || currentMaxWidth.includes('%')) {
-                    isCurrentlyOpenDesktop = true;
+                    isCurrentlyOpen = true;
                 }
             }
             
-            var detailsVisible = panel.is(':visible');
+            var detailsVisible = $(this).next('.job-details-container').is(':visible');
             
-            if (isCurrentlyOpenDesktop || detailsVisible) {
+            if (isCurrentlyOpen || detailsVisible) {
                 // Close this accordion
-                $('.job-details-container').hide();
+                $(".job-details-container").hide();
                 $('.job-target-outer-container', this).css({'max-width': '1050px'});
                 $('.job-outer-container', this).css({
                     'padding-left': '25px',
                     'border-top': '0px',
                     'border-radius': '5px'
                 });
-                $('.job-inner-container', this).css({'width': '899px'});
+                $('.job-inner-container', this).css({'width': '899px'}); // Restore original width
             } else { 
                 // Close all other accordions first 
                 $('.job-target-outer-container').not(this).css({'max-width': '1050px'});
@@ -103,14 +106,16 @@ $(document).on("ready page:load", function (){
                     'border-top': '0px',
                     'border-radius': '5px'
                 });
-                $('.job-inner-container').not($(this).find('.job-inner-container')).css({'width': '899px'});
-                $('.job-details-container').hide();
+                $('.job-inner-container').not($(this).find('.job-inner-container')).css({'width': '899px'}); // Restore original width, not 'initial'
+                $(".job-details-container").hide();
 
                 // Open this accordion with responsive widths
                 var windowWidth = $(window).width();
                 var containerWidth = windowWidth > 1200 ? '100%' : '95%';
                 var innerWidth = windowWidth > 1200 ? '1150px' : 'calc(100% - 105px)';
                 var paddingLeft = windowWidth > 1200 ? '175px' : '20px';
+                
+                // $(this).find('.job-inner-container').css({'border-top': 'none !important'});
 
                 $('.job-target-outer-container', this).css({'max-width': containerWidth});
                 $('.job-outer-container', this).css({
@@ -120,95 +125,43 @@ $(document).on("ready page:load", function (){
                 });
                 $('.job-inner-container', this).css({'width': innerWidth});
 
-                panel.show();
+                $(this).next('.job-details-container').show();
 
                 $([document.documentElement, document.body]).animate({
-                    scrollTop: $('.job-outer-container', this).offset().top - 60
+                    scrollTop: $(".job-outer-container", this).offset().top - 60
                 }, 700);
+
+                // When hovering over job title bar, change background to blue
+                $("#experience-container" ).on( "mouseenter", ".job-target-outer-container", function( event ) {
+                    $('.job-outer-container', this).css({'background-color': '#0065a3'});
+                }).on( "mouseleave", ".job-target-container", function( event ) {
+                    $('.job-outer-container', this).css({'background-color': '#fff'});
+                });
             }
         }
     });
 
-    // Window resize handler
-    $(window).on('resize', function() {
-        $('.job-target-container').removeClass('active');
-        $('.job-target-outer-container').css({'max-width': '1050px'});
-        $('.job-outer-container').css({
-            'padding-left': '25px',
-            'background-color': '#fff',
-            'border-top': '0px',
-            'border-radius': '5px'
-        });
-        
-        if (isMobile()) {
-            $('.job-inner-container').css({
-                'border-top': 'none',
-                'color': '#181819'
-            });
-        } else {
-            $('.job-inner-container').css({
-                'width': '899px',
-                'border-top': '1px solid #ccd0d2',
-                'color': '#181819'
-            });
+
+
+
+
+
+
+    // ????
+    $(function() {
+      $('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+          if (target.length) {
+            $('html,body').animate({
+              scrollTop: target.offset().top
+            }, 1000);
+            return false;
+          }
         }
-
-        $('.job-company').css({
-            'color': '#0065a3',
-            'visibility': 'initial'
-        });
-        $('.job-date-arrow').css({'right': '0'});
-        $('.experience-arrow').attr('src','assets/images/arrow.png');
-        $('.job-title-company').css({'width': '664px'});
-        $('.job-icon').css('top','-10px');
-        $('.job-icon-container').css({
-            'height':'66px',
-            'width': 'initial'
-        });
-        $('.job-title').css({
-            'top': '0',
-            'font-size': '26px'
-        });
-        
-        $('.job-details-container').hide();
+      });
     });
-
-
-
-
-
-
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	// ????
-	$(function() {
-	  $('a[href*=#]:not([href=#])').click(function() {
-	    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-	      var target = $(this.hash);
-	      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-	      if (target.length) {
-	        $('html,body').animate({
-	          scrollTop: target.offset().top
-	        }, 1000);
-	        return false;
-	      }
-	    }
-	  });
-	});
 
 
 	// MODAL
@@ -338,5 +291,23 @@ $(document).on("ready page:load", function (){
 		});
 	});
 
+});
 
+// Simplified resize handler - only for actual device orientation changes
+$(window).on('orientationchange', function() {
+    // Only reset on actual orientation changes, not during scrolling
+    setTimeout(function() {
+        $('.job-target-container').removeClass('mobile-open');
+        $('.job-details-container').slideUp(0); // Instant close, no animation
+        
+        // Reset basic styles
+        $('.job-target-outer-container').css({'max-width': '1050px'});
+        $('.job-outer-container').css({
+            'padding-left': '25px',
+            'background-color': '#fff',
+            'border-top': '0px',
+            'border-radius': '5px'
+        });
+        $('.job-inner-container').css({'width': '899px'});
+    }, 100); // Small delay to ensure orientation change is complete
 });
