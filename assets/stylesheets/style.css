@@ -1343,7 +1343,10 @@ footer {
 	}
 
 	.education-school {
-		font-size: 26px;
+		/* font-size: 26px; */
+		font-size: 21px;
+		line-height: 1.2;
+		text-transform: uppercase;
 	}
 
 }
