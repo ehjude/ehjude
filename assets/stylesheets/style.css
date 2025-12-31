@@ -287,10 +287,6 @@ header {
 	border: 1px solid #fff;
 }
 
-.blue-project-button {
-	/* padding: 10px 20px 12px; */
-}
-
 /* 
   ==================
   NAV BAR
@@ -801,33 +797,6 @@ a.underline-hover {
 	font-size: 19px;
 	line-height: 30px;
 	margin-bottom: 15px;
-}
-
-.blue-project-button,
-.gray-project-button {
-	background-color: #0065a3;
-	color: #fff;
-	text-transform: uppercase;
-	/* padding: 22px 15px 15px; */
-	border-radius: 3px;
-	border: 1px solid #0065a3;
-	font-size: 12px;
-	font-family: "Gotham";
-	font-weight: 600;
-	display: inline-block;
-}
-
-.gray-project-button {
-	background-color: #484951;
-	margin-left: 10px;
-	border: 1px solid #484951;
-}
-
-.blue-project-button:hover,
-.gray-project-button:hover {
-	background-color: #181819;
-	cursor: pointer;
-	border: 1px solid #fff;
 }
 
 .no-indent {
@@ -1343,7 +1312,6 @@ footer {
 	}
 
 	.education-school {
-		/* font-size: 26px; */
 		font-size: 21px;
 		line-height: 1.2;
 		text-transform: uppercase;
