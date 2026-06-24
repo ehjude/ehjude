@@ -399,7 +399,9 @@ a.underline-hover {
 	height: 35px;
 	position: relative;
     top: 11px;
-    margin-left: 25px;
+    
+	/* uncomment this if I re-add email me button */
+	/* margin-left: 25px;  */
 }
 
 #linkedin-icon:hover {
